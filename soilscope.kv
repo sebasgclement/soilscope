@@ -1,0 +1,230 @@
+ScreenManager:
+    RealTimeScreen:
+    HistoricalScreen:
+
+<RealTimeScreen>:
+    name: "real_time"
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        padding: 10
+
+        Label:
+            text: "SOILSCOPE - TIEMPO REAL"
+            font_size: 32
+            bold: True
+            color: 0, 1, 0, 1  # Verde claro
+
+        GridLayout:
+            cols: 2
+            spacing: 20
+            size_hint_y: 0.7
+
+            # Gráfica de humedad
+            BoxLayout:
+                orientation: "vertical"
+                spacing: 10
+                Graph:
+                    id: graph
+                    xlabel: "Tiempo"
+                    ylabel: "Humedad (%)"
+                    x_ticks_major: 10
+                    y_ticks_major: 10
+                    y_grid_label: True
+                    x_grid_label: True
+                    padding: 5
+
+                BoxLayout:
+                    orientation: "horizontal"
+                    spacing: 10
+                    Button:
+                        text: "Medir"
+                        on_release: root.start_measurement()
+                    Button:
+                        text: "No medir"
+                        on_release: root.stop_measurement()
+
+            # Widgets de humedad y temperatura con GaugeWidget
+            BoxLayout:
+                orientation: "horizontal"
+                spacing: 40
+                padding: 10
+
+                # Humedad
+                BoxLayout:
+                    orientation: "vertical"
+                    spacing: 5
+                    Label:
+                        id: humidity_label
+                        text: "Humedad: 50%"
+                        font_size: 18
+                        color: 1, 1, 1, 1
+                        halign: "center"
+                        valign: "middle"
+                        size_hint_y: None
+                        height: 40
+                    GaugeWidget:
+                        id: humidity_gauge
+                        value: 40
+                        size_hint: None, None
+                        size: 150, 150
+
+                # Temperatura
+                BoxLayout:
+                    orientation: "vertical"
+                    spacing: 5
+                    Label:
+                        id: temperature_label
+                        text: "Temperatura: 25°C"
+                        font_size: 18
+                        color: 1, 1, 1, 1
+                        halign: "center"
+                        valign: "middle"
+                        size_hint_y: None
+                        height: 40
+                    GaugeWidget:
+                        id: temperature_gauge
+                        value: 20
+                        size_hint: None, None
+                        size: 150, 150
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: 10
+            size_hint_y: 0.2
+            ProgressBar:
+                id: water_level
+                max: 100
+                value: 50
+            Label:
+                id: water_label
+                text: "Nivel del tanque: 50%"
+                font_size: 14
+                color: 1, 1, 1, 1
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: 10
+            size_hint_y: 0.1
+            Button:
+                text: "Activar Bomba"
+                on_release: root.activate_pump()
+            Button:
+                text: "Desactivar Bomba"
+                on_release: root.deactivate_pump()
+
+        Button:
+            text: "Ir al Registro Histórico"
+            size_hint_y: 0.1
+            on_release: app.root.current = "historical"
+
+<HistoricalScreen>:
+    name: "historical"
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        padding: 10
+
+        Label:
+            text: "SOILSCOPE - REGISTRO DE CULTIVOS"
+            font_size: 32
+            bold: True
+            color: 0, 1, 0, 1  # Verde claro
+            size_hint_y: None
+            height: 40
+
+        GridLayout:
+            cols: 2
+            spacing: 10
+            size_hint_y: 0.8
+
+            # Sección izquierda: Cultivo seleccionado y su descripción
+            BoxLayout:
+                orientation: "vertical"
+                spacing: 10
+                size_hint_x: 0.5
+
+                Image:
+                    id: imagen_cultivo
+                    source: "resources/romero.jpg"
+                    allow_stretch: True
+                    size_hint_y: 0.6
+
+                Label:
+                    id: descripcion
+                    text: "Descripción del cultivo seleccionado"
+                    font_size: 14
+                    color: 1, 1, 1, 1
+                    size_hint_y: 0.4
+                    text_size: self.width, None
+                    halign: 'left'
+                    valign: 'top'
+
+            # Sección derecha: Valores del cultivo y carrusel de imágenes
+            BoxLayout:
+                orientation: "vertical"
+                spacing: 10
+                size_hint_x: 0.5
+
+                Label:
+                    text: "Valores de humedad y temperatura"
+                    font_size: 18
+                    bold: True
+                    color: 0, 1, 0, 1
+                    size_hint_y: None
+                    height: 30
+
+                BoxLayout:
+                    orientation: "vertical"
+                    spacing: 5
+                    size_hint_y: 0.3
+
+                    Label:
+                        id: temp_ambiente
+                        text: "Temp. Ambiente: -- °C"
+                        font_size: 14
+                        color: 1, 1, 1, 1
+                        size_hint_y: None
+                        height: 20
+
+                    Label:
+                        id: humedad_ambiente
+                        text: "Humedad Ambiente: -- %"
+                        font_size: 14
+                        color: 1, 1, 1, 1
+                        size_hint_y: None
+                        height: 20
+
+                    Label:
+                        id: humedad_suelo
+                        text: "Humedad Suelo: -- %"
+                        font_size: 14
+                        color: 1, 1, 1, 1
+                        size_hint_y: None
+                        height: 20
+
+                Label:
+                    text: "Abanico de plantas"
+                    font_size: 18
+                    bold: True
+                    color: 0, 1, 0, 1
+                    size_hint_y: None
+                    height: 30
+
+                # 🛠 Aquí estaba el error de identación 🛠
+                ScrollView:
+                    size_hint_y: 0.5
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    GridLayout:
+                        id: carrusel_plantas
+                        cols: 1
+                        spacing: 5
+                        size_hint_y: None
+                        height: self.minimum_height
+
+        Button:
+            text: "Ir a Tiempo Real"
+            size_hint_y: 0.1
+            on_release: app.root.current = "real_time"

@@ -1,0 +1,59 @@
+{
+  "cultivos": [
+    {
+      "nombre": "Romero",
+      "imagen": "resources/romero.jpg",
+      "temp_ambiente_max": 15,
+      "temp_ambiente_min": 25,
+      "humedad_ambiente_max": 40,
+      "humedad_ambiente_min": 20,
+      "humedad_suelo_max": 20,
+      "humedad_suelo_min": 40,
+      "descripcion": "El romero (Rosmarinus officinalis) es una planta aromática perenne, de hojas verdes y pequeñas flores azuladas. Se usa en cocina por su sabor y aroma, y tiene propiedades medicinales como mejorar la digestión. Es resistente y crece en climas cálidos y secos."
+    },
+    {
+      "nombre": "Albahaca",
+      "imagen": "resources/albahaca.jpg",
+      "temp_ambiente_max": 18,
+      "temp_ambiente_min": 30,
+      "humedad_ambiente_max": 50,
+      "humedad_ambiente_min": 70,
+      "humedad_suelo_max": 60,
+      "humedad_suelo_min": 50,
+      "descripcion": "Albahaca, su nombre científico es Ocimum basilicum. Es una hierba aromática anual de la familia de las lamiáceas nativa de las regiones tropicales de África Central y el sudeste asiático, que se cultiva desde hace milenios.Es una planta tierna y se utiliza en cocinas de todo el mundo."
+    },
+    {
+      "nombre": "Tomate",
+      "imagen": "resources/tomate.jpg",
+      "temp_ambiente_max": 20,
+      "temp_ambiente_min": 30,
+      "humedad_ambiente_max": 80,
+      "humedad_ambiente_min": 60,
+      "humedad_suelo_max": 70,
+      "humedad_suelo_min": 50,
+      "descripcion": "Solanum lycopersicum, conocida comúnmente como tomate o tomatera es una especie de planta herbácea del género Solanum de la familia Solanaceae. Es una planta de importancia global por su uso como alimento."
+    },
+    {
+      "nombre": "Lechuga",
+      "imagen": "resources/lechuga.jpg",
+      "temp_ambiente_max": 20,
+      "temp_ambiente_min": 10,
+      "humedad_ambiente_max": 80,
+      "humedad_ambiente_min": 60,
+      "humedad_suelo_max": 60,
+      "humedad_suelo_min": 40,
+      "descripcion": "La lechuga es una planta anual de la familia Asteraceae. Se cultiva sobre todo como verdura de hoja, pero a veces también por su tallo."
+    },
+    {
+      "nombre": "Perejil",
+      "imagen": "resources/perejil.jpg",
+      "temp_ambiente_max": 25,
+      "temp_ambiente_min": 15,
+      "humedad_ambiente_max": 70,
+      "humedad_ambiente_min": 50,
+      "humedad_suelo_max": 50,
+      "humedad_suelo_min": 30,
+      "descripcion": "El perejil es una planta herbácea de la familia Apiaceae nativa de la zona central de la región mediterránea e introducida y naturalizada en el resto de Europa y distribuida ampliamente por todo el mundo. Se cultiva generalmente como condimento."
+    }
+  ]
+}
