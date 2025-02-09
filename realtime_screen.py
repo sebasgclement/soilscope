@@ -1,6 +1,6 @@
 from kivy.uix.screenmanager import Screen
 from kivy_garden.graph import MeshLinePlot
-from kivy.clock import Clock
+from kivy.clock import Clock, mainthread
 import asyncio
 from bleak import BleakClient
 
@@ -41,6 +41,7 @@ class RealTimeScreen(Screen):
     def data_received(self, sender, data):
         try:
             decoded_data = data.decode("utf-8")
+            print(f"Datos recibidos: {decoded_data}")  # Para depurar
             parts = decoded_data.split(",")
             if len(parts) == 6:
                 # Convertir las partes a los tipos de dato adecuados:
@@ -56,6 +57,7 @@ class RealTimeScreen(Screen):
         except Exception as e:
             print(f"Error al procesar datos BLE: {e}")
 
+    @mainthread
     def update_interface(self, humedad1, humedad2, temperature, humidity_air, water_level, relay_state):
         # Actualizamos las gráficas
         self.plot_humidity1.points.append((len(self.plot_humidity1.points), humedad1))

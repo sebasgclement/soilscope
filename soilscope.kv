@@ -55,8 +55,8 @@ ScreenManager:
                     orientation: "vertical"
                     spacing: 5
                     Label:
-                        id: humidity_label
-                        text: "Humedad: 50%"
+                        id: humidity1_label  # Cambié el id a humidity1_label
+                        text: "Humedad 1: 50%"
                         font_size: 18
                         color: 1, 1, 1, 1
                         halign: "center"
@@ -64,18 +64,18 @@ ScreenManager:
                         size_hint_y: None
                         height: 40
                     GaugeWidget:
-                        id: humidity_gauge
+                        id: humidity1_gauge  # Cambié el id a humidity1_gauge
                         value: 40
                         size_hint: None, None
                         size: 150, 150
 
-                # Temperatura
+                # Humedad
                 BoxLayout:
                     orientation: "vertical"
                     spacing: 5
                     Label:
-                        id: temperature_label
-                        text: "Temperatura: 25°C"
+                        id: humidity2_label  # Cambié el id a humidity2_label
+                        text: "Humedad 2: 50%"
                         font_size: 18
                         color: 1, 1, 1, 1
                         halign: "center"
@@ -83,8 +83,8 @@ ScreenManager:
                         size_hint_y: None
                         height: 40
                     GaugeWidget:
-                        id: temperature_gauge
-                        value: 20
+                        id: humidity2_gauge  # Cambié el id a humidity2_gauge
+                        value: 40
                         size_hint: None, None
                         size: 150, 150
 
@@ -211,7 +211,6 @@ ScreenManager:
                     size_hint_y: None
                     height: 30
 
-                # 🛠 Aquí estaba el error de identación 🛠
                 ScrollView:
                     size_hint_y: 0.5
                     do_scroll_x: False
